@@ -1,0 +1,75 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/nest-micro-chat/src",
+  "monorepo": true,
+  "root": "apps/nest-micro-chat",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/nest-micro-chat/tsconfig.app.json"
+  },
+  "projects": {
+    "nest-micro-chat": {
+      "type": "application",
+      "root": "apps/nest-micro-chat",
+      "entryFile": "main",
+      "sourceRoot": "apps/nest-micro-chat/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nest-micro-chat/tsconfig.app.json"
+      }
+    },
+    "user-management": {
+      "type": "application",
+      "root": "apps/user-management",
+      "entryFile": "main",
+      "sourceRoot": "apps/user-management/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/user-management/tsconfig.app.json"
+      }
+    },
+    "chat-room": {
+      "type": "application",
+      "root": "apps/chat-room",
+      "entryFile": "main",
+      "sourceRoot": "apps/chat-room/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/chat-room/tsconfig.app.json"
+      }
+    },
+    "contracts": {
+      "type": "library",
+      "root": "libs/contracts",
+      "entryFile": "index",
+      "sourceRoot": "libs/contracts/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/contracts/tsconfig.lib.json"
+      }
+    },
+    "authentication": {
+      "type": "library",
+      "root": "libs/authentication",
+      "entryFile": "index",
+      "sourceRoot": "libs/authentication/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/authentication/tsconfig.lib.json"
+      }
+    },
+    "auth": {
+      "type": "application",
+      "root": "apps/auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth/tsconfig.app.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    }
+  }
+}
