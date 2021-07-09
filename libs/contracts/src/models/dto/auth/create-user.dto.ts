@@ -2,7 +2,6 @@ import { IsEmail, IsNotEmpty, IsString, MaxLength, Min, MinLength } from 'class-
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateUserDto {
-  @ApiProperty()
   @IsEmail()
   @IsNotEmpty()
   public email: string;

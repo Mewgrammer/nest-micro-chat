@@ -5,7 +5,16 @@
   "root": "apps/nest-micro-chat",
   "compilerOptions": {
     "webpack": true,
-    "tsConfigPath": "apps/nest-micro-chat/tsconfig.app.json"
+    "tsConfigPath": "apps/nest-micro-chat/tsconfig.app.json",
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": {
+          "classValidatorShim": false,
+          "introspectComments": true
+        }
+      }
+    ]
   },
   "projects": {
     "nest-micro-chat": {
@@ -14,7 +23,16 @@
       "entryFile": "main",
       "sourceRoot": "apps/nest-micro-chat/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/nest-micro-chat/tsconfig.app.json"
+        "tsConfigPath": "apps/nest-micro-chat/tsconfig.app.json",
+        "plugins": [
+          {
+            "name": "@nestjs/swagger",
+            "options": {
+              "classValidatorShim": false,
+              "introspectComments": true
+            }
+          }
+        ]
       }
     },
     "user-management": {
@@ -23,7 +41,16 @@
       "entryFile": "main",
       "sourceRoot": "apps/user-management/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/user-management/tsconfig.app.json"
+        "tsConfigPath": "apps/user-management/tsconfig.app.json",
+        "plugins": [
+          {
+            "name": "@nestjs/swagger",
+            "options": {
+              "classValidatorShim": false,
+              "introspectComments": true
+            }
+          }
+        ]
       }
     },
     "chat-room": {
@@ -32,7 +59,16 @@
       "entryFile": "main",
       "sourceRoot": "apps/chat-room/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/chat-room/tsconfig.app.json"
+        "tsConfigPath": "apps/chat-room/tsconfig.app.json",
+        "plugins": [
+          {
+            "name": "@nestjs/swagger",
+            "options": {
+              "classValidatorShim": false,
+              "introspectComments": true
+            }
+          }
+        ]
       }
     },
     "contracts": {
@@ -50,7 +86,7 @@
       "entryFile": "index",
       "sourceRoot": "libs/authentication/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/authentication/tsconfig.lib.json"
+        "tsConfigPath": "libs/authentication/tsconfig.lib.json",
       }
     },
     "auth": {
@@ -59,7 +95,16 @@
       "entryFile": "main",
       "sourceRoot": "apps/auth/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/auth/tsconfig.app.json"
+        "tsConfigPath": "apps/auth/tsconfig.app.json",
+        "plugins": [
+          {
+            "name": "@nestjs/swagger",
+            "options": {
+              "classValidatorShim": false,
+              "introspectComments": true
+            }
+          }
+        ]
       }
     },
     "common": {
@@ -68,7 +113,7 @@
       "entryFile": "index",
       "sourceRoot": "libs/common/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/common/tsconfig.lib.json"
+        "tsConfigPath": "libs/common/tsconfig.lib.json",
       }
     }
   }

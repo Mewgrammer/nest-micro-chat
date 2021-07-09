@@ -12,6 +12,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:auth": "nest start auth --watch",
+    "start:debug:webstorm": "node --inspect-brk -r ts-node/register -r tsconfig-paths/register apps/auth/src/main.ts",
     "start:auth:dev": "nest start auth --watch",
     "start:chat": "nest start chat-room --watch",
     "start:chat:dev": "nest start chat-room --watch",

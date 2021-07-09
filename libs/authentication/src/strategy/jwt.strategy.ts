@@ -15,7 +15,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: JwtPayload): Promise<string> {
-    return await this._authenticationService.signIn(payload.userId, payload.role);
+  // noinspection JSUnusedGlobalSymbols
+  async validate(payload: JwtPayload): Promise<JwtPayload> {
+    const token = await this._authenticationService.signIn(payload);
+    return payload;
   }
 }

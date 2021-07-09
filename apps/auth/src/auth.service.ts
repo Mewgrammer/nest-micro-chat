@@ -18,9 +18,6 @@ export class AuthService {
    * @throws InternalServerErrorException user creation fails
    */
   public async register(userData: CreateUserDto): Promise<User> {
-    if (!userData) {
-      throw new BadRequestException('no user data provided');
-    }
     try {
       const createdUser = await this._userService.create(userData);
       createdUser.password = undefined;
@@ -41,9 +38,6 @@ export class AuthService {
    * @throws UnauthorizedException credential validation fails
    */
   public async login(loginData: LoginUserDto): Promise<string> {
-    if (!loginData) {
-      throw new BadRequestException('no user data provided');
-    }
     const user = await this._userService.findByEmail(loginData.email);
     if (!user) throw new NotFoundException(`user with email ${loginData.email} does not exist`);
     try {

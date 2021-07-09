@@ -1,9 +1,10 @@
-import { Body, ClassSerializerInterceptor, Controller, Get, HttpCode, Post, Req, UseGuards, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, Header, HttpCode, Post, Req, UseGuards, UseInterceptors } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard, UserRequest } from '@nest-micro-chat/authentication';
 import { CreateUserDto, LoginUserDto } from '@nest-micro-chat/contracts';
 import { ExcludeNullInterceptor } from '@nest-micro-chat/common';
+import { JwtTokenDto } from '@nest-micro-chat/contracts/models/dto/auth/jwt-tokenDto';
 
 @ApiTags('AUTH')
 @ApiBearerAuth()
@@ -15,6 +16,7 @@ export class AuthController {
   @Get()
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
+  @Header('content-type', 'application/json')
   public authenticate(@Req() request: UserRequest) {
     return request.user;
   }
@@ -26,7 +28,7 @@ export class AuthController {
 
   @Post('login')
   @HttpCode(200)
-  public async login(@Body() loginUserDto: LoginUserDto) {
-    return await this._authService.login(loginUserDto);
+  public async login(@Body() loginUserDto: LoginUserDto): Promise<JwtTokenDto> {
+    return { token: await this._authService.login(loginUserDto) };
   }
 }
