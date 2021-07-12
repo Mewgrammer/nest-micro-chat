@@ -42,7 +42,7 @@ export class AuthService {
     if (!user) throw new NotFoundException(`user with email ${loginData.email} does not exist`);
     try {
       await AuthService.verifyPassword(loginData.plainTextPassword, user.password);
-      return await this._authenticationService.signIn(user.id, user.role);
+      return await this._authenticationService.signIn({ userId: user.id, role: user.role });
     } catch (error) {
       throw new UnauthorizedException('Wrong credentials provided');
     }

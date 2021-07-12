@@ -17,7 +17,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
   // noinspection JSUnusedGlobalSymbols
   async validate(payload: JwtPayload): Promise<JwtPayload> {
-    const token = await this._authenticationService.signIn(payload);
+    // const token = await this._authenticationService.signIn(payload);
     return payload;
   }
 }

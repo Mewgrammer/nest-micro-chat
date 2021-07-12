@@ -1,22 +1,13 @@
-import {
-  BeforeInsert,
-  BeforeUpdate,
-  Column,
-  CreateDateColumn,
-  Entity,
-  PrimaryColumn,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn
-} from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, Entity, Index, PrimaryColumn } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { UserRole } from '@nest-micro-chat/authentication';
-import { Type } from 'class-transformer';
 import { User } from '@nest-micro-chat/contracts';
 import { v4 as uuidv4 } from 'uuid';
 import { AutoMap } from '@automapper/classes';
 
 @Entity({
   name: 'users',
+  schema: 'public',
 })
 export class UserEntity implements User {
   @PrimaryColumn()
@@ -24,6 +15,7 @@ export class UserEntity implements User {
   public id: string;
 
   @Column('varchar', { unique: true, nullable: false, length: 127 })
+  @Index({ unique: true })
   @AutoMap()
   public email: string;
 
@@ -56,6 +48,7 @@ export class UserEntity implements User {
     nullable: false,
     default: UserRole.User,
   })
+  @AutoMap()
   public role: UserRole;
 
   @BeforeInsert()

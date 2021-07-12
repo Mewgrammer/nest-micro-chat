@@ -86,7 +86,7 @@
       "entryFile": "index",
       "sourceRoot": "libs/authentication/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/authentication/tsconfig.lib.json",
+        "tsConfigPath": "libs/authentication/tsconfig.lib.json"
       }
     },
     "auth": {
@@ -113,7 +113,7 @@
       "entryFile": "index",
       "sourceRoot": "libs/common/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/common/tsconfig.lib.json",
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     }
   }

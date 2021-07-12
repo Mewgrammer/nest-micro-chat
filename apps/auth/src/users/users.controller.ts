@@ -1,16 +1,4 @@
-import {
-  Body,
-  ClassSerializerInterceptor,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-  Put,
-  UseGuards,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UseGuards, UseInterceptors } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { UpdateUserDto } from '@nest-micro-chat/contracts/models/dto/auth/update-user.dto';
@@ -26,7 +14,7 @@ import { InjectMapper, MapInterceptor } from '@automapper/nestjs';
 @ApiTags('USERS')
 @ApiBearerAuth()
 @UseInterceptors(ExcludeNullInterceptor)
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(RolesGuard)
 @Controller('v1/users')
 export class UsersController {
   constructor(private readonly _userService: UsersService, @InjectMapper() private readonly _mapper: Mapper) {}
